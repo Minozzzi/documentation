@@ -1,5 +1,6 @@
 * __Administration__
+  * [Quick start (Docker)](administration/quick-start.md) 
   * [Installation](administration/installation.md)
   * [Configuration](administration/configuration.md)
   * [Best practice](administration/best-practice.md)
-  * [Docker Setup](administration/docker-setup.md)
+  <!--* [Connector](administration/connector.md)-->

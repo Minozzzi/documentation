@@ -17,8 +17,8 @@
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
-| worker | `function` |  Function that can call itself over and over |
-| delay | `number` |  Delay before worker is self re-called |
+| worker | `Function` |  Function that can call itself over and over |
+| delay | `Number` |  Delay before worker is self re-called |
 
 
 Self calling code with delay

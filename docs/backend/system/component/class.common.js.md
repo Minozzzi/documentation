@@ -62,6 +62,43 @@ Defines a hookable/event emitting method on component scope
 <!-- LINKS -->
 <!-- LINKS -->
 
+####  ._mapMethod(name, method, arr);  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| name | `String` |  Name to set on the component object |
+| method | `String` |  Method name on item |
+| arr | `Array` |  Array too look for the target item object |
+
+
+Maps a item method to the component scope
+The mapped method is full hookable & emit evenits
+Just like the build in component methods
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  ._ready(cb);  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| cb | `Function` |  Callback to register |
+
+
+Calls the provided callback as soon as the component is ready to be used.<br />
+If this function is called while the component is ready, the callback is immediately called.
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
 <!-- METHODS -->
 
 

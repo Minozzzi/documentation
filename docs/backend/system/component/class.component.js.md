@@ -29,9 +29,9 @@ Parent class for components which provides hookable, event emitting methods:
 | items | `Array` | Store where instance of items are keept |
 | collection | `Object` | MongoDB collection instance |
 | schema | `Object` | Joi Object schema which is extend by a timestamp object: |
-| timestamps | `Object` | Timestamps |
-| timestamps.created | `Number` | Set to `Date.now()` when a item is created/added |
-| timestamps.updated | `Number` | Set to `Date.now()` when a item is updated |
+| schema.timestamps | `Object` | Timestamps |
+| schema.timestamps.created | `Number` | Set to `Date.now()` when a item is created/added |
+| schema.timestamps.updated | `Number` | Set to `Date.now()` when a item is updated |
 <!-- PROPERTIES -->
 
 <!-- EVENTS -->
@@ -60,11 +60,13 @@ Parent class for components which provides hookable, event emitting methods:
 
 <!-- METHODS -->
 ### Methods:
-####  .add(data);  
+####  .add(data, options, options.returnDuplicate);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
 | data | `Object` |  Object that matches the component schema |
+| options | `Object` |  Options object |
+| options.returnDuplicate | `Boolean` |  When a duplicate is detected, return the already existing item instance? |
 
 
 Adds a new item that matches the component schema
@@ -133,6 +135,30 @@ Updates a existing item in the database  & `.items` array
 
 
 Find matching item with key/values 
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  .found(filter, cb, nothing);  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| filter | `Object` |  Object that matches the component schema |
+| cb | `Function` |  Callback function |
+| nothing | `Function` |  Function that is called when not matching item in <items> array is found. Usefull to add then something, when its not found. |
+
+
+A dynamic function which is called when either a item with matching filter is found in items array, 
+or a new item with matching filter is added. It "search" as long as the wanted item is found.
+
+Arrays as filter arguments are currently ignored and invalidate the query.
+As result, the function would not returny any items. Remove the array.
+
+NOTE: The filter values are case sensetive!
 
 
 *Returns*   `undefined`   

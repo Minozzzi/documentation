@@ -13,7 +13,7 @@ const system = new Map();
 Promise.all([
     globber("components/**/*.js", components),
     globber("helper/**/*.js", helper),
-    globber("system/**/*.js", system),
+    globber("system/**/*.js", system)
 ]).then(() => {
 
     let comps = [];

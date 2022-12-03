@@ -1,16 +1,16 @@
 <div class="mb-0">
     🔗 <a class="source-code" target="_blank"
-        href="https://github.com/OpenHausIO/backend/blob/dev&#x2F;components&#x2F;vault&#x2F;class.vault.js">class.vault.js</a>
+        href="https://github.com/OpenHausIO/backend/blob/dev&#x2F;components&#x2F;store&#x2F;class.store.js">class.store.js</a>
 </div>
 <hr style="margin: 0 !important" />
 
 <!-- CLASS -->
 
 <!-- GENERAL -->
-## `class` Vault 
+## `class` Store 
 ### Description:
 
-Contains a collection of secrets
+Contains a collection of values that are used as configuration object
 
 <!-- GENERAL -->
 
@@ -26,9 +26,9 @@ Contains a collection of secrets
 | Name | Type | Description |
 | :---- | :-------- | :----------- |
 | _id | `String` | MongoDB Object id is as string |
-| key | `String` |  |
-| value | `String` |  |
-| description | `String` |  |
+| config | `Array` | Array of value instances, see "value" link below |
+| item | `String` | Can be a Endpoint or Device _id, or what ever you want |
+| namespace | `String` | Object namespace, `uuid -v4` |
 <!-- PROPERTIES -->
 
 <!-- EVENTS -->
@@ -39,7 +39,7 @@ Contains a collection of secrets
 
 <!-- LINKS -->
 #### See:
-- [secret](/backend/components/vault/class.secret.js)<br />
+- [value](/backend/components/store/class.value.js)<br />
 <!-- LINKS -->
 
 <!-- CLASS -->
@@ -48,21 +48,6 @@ Contains a collection of secrets
 
 <!-- METHODS -->
 ### Methods:
-####  .schema();  `static`  
-
-| Parameter | Type       | Description    |
-| :-------- | :--------- |:------------- |
-
-
-Returns a joi object that matches the schema
-
-
-*Returns*  `Object`    Joi.object() 
-
-
-<!-- LINKS -->
-<!-- LINKS -->
-
 ####  .changes();  
 
 | Parameter | Type       | Description    |
@@ -81,16 +66,16 @@ Returns a EventEmitter that can be used to watch for changes
 - [https://nodejs.org/dist/latest-v16.x/docs/api/events.html#class-eventemitter](https://nodejs.org/dist/latest-v16.x/docs/api/events.html#class-eventemitter)<br />
 <!-- LINKS -->
 
-####  .decrypt();  
+####  .lean();  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
 
 
-Decrypt all secrets at once, and returns a object with key/value
+Create a new lean object with key/value based on schema
 
 
-*Returns*  `Object`    Key = Secret key property, Value = decrypted value
+*Returns*  `Object`    Key/value object
 
 
 <!-- LINKS -->

@@ -34,10 +34,10 @@ Single command
 | description | `String` | Command description, displayed on the frontend |
 | params | `Array` | Possible parameter for the command |
 | params[].key | `String` | Custom key |
-| params[].value | `Any` | Value to set |
-| params[].default | `String` | Default thing if nothing is send from client |
-| params[].min | `String` | Min value if param type is a number |
-| params[].max | `String` | Max value if param type is a number |
+| params[].type | `String` | Type of value: "string", "number" or "boolean" |
+| params[].value | `String|Number|Boolean` | Value to set |
+| params[].min | `Number` | Min value if param type is a number (`type=number`) |
+| params[].max | `Number` | Max value if param type is a number (`type=number`) |
 <!-- PROPERTIES -->
 
 <!-- EVENTS -->
@@ -96,6 +96,85 @@ Single command
 
 <!-- METHODS -->
 ### Methods:
+####  .setHandler(handler);  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| handler | `Function` |   |
+
+
+Set the handler function that implements the command sepcific execution
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  .getHandler();  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+
+
+Get the handler function that is currently set
+
+
+*Returns*  `Function`    Setted handler function
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  .setTimeout(n);  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| n | `Number` |  Timeout in msec |
+
+
+Set the duration of a command timeout
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  .getTimeout();  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+
+
+Returns the setted timeout
+
+
+*Returns*  `Number`    Timeout in msec
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  .trigger(params, cb);  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+| params | `Array` |  Parameter array |
+| cb | `Function` |  Callback |
+
+
+Calls the handler function and trigger the command execution
+
+
+*Returns*   `undefined`   
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
 ####  .schema();  `static`  
 
 | Parameter | Type       | Description    |

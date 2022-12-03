@@ -11,7 +11,15 @@ Visual representation
 yum install nginx -y
 ```
 
-2) Create a nginx configuration file `/etc/nginx/conf.d/open-haus.conf`:
+2) Download and extract the frontend
+```bash
+wget "https://github.com/OpenHausIO/frontend/releases/download/v1.0.0/frontend-v1.0.0.tgz"
+mkdir -p /opt/OpenHaus/frontend-v1.0.0
+tar -zxvf -C /opt/OpenHaus/frontend-v1.0.0 frontend-v1.0.0.tgz
+ln -s /opt/OpenHaus/frontend-v1.0.0 /opt/OpenHaus/frontend
+```
+
+3) Create a nginx configuration file `/etc/nginx/conf.d/open-haus.conf`:
 ```nginx
 server {
 
@@ -50,7 +58,7 @@ systemctl enable --now nginx
 systemctl status nginx
 ```
 
-4) Test the configuration
+1) Test the configuration
 ```bash
 curl http://127.0.0.1
 ```

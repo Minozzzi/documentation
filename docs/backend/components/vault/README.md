@@ -31,22 +31,16 @@ Use this if a API needs to be authenticated.<br />
 ```js
 const C_VAULT = require(".../components/vault");
 
-C_VAULT.decrypt("FRITZBOX", (err, fields) => {
-  console.log(err, fields);
-});
-```
-
-        
-```js
-const C_VAULT = require(".../components/vault");
-
 C_VAULT.events.on("add", (item) => {
   console.log("New vault/secret added", item)
 });
 ```
+
 <!-- EXAMPLES -->
 
 <!-- LINKS -->
+#### See:
+- [secret](/backend/components/vault/class.secret.js)<br />
 <!-- LINKS -->
 
 <!-- CLASS -->
@@ -54,42 +48,6 @@ C_VAULT.events.on("add", (item) => {
 
 
 <!-- METHODS -->
-### Methods:
-####  .encrypt(identifier, fields);  
-
-| Parameter | Type       | Description    |
-| :-------- | :--------- |:------------- |
-| identifier | `String` |   |
-| fields | `Array` |   |
-
-
-Encrypt a vault
-
-
-*Returns*  `Function`    cb 
-
-
-<!-- LINKS -->
-<!-- LINKS -->
-
-####  .decrypt(identifier, cb);  
-
-| Parameter | Type       | Description    |
-| :-------- | :--------- |:------------- |
-| identifier | `String` |   |
-| cb | `Function` |  Callback |
-
-
-
-Decrypt a vault
-
-
-*Returns*  `Function`    cb 
-
-
-<!-- LINKS -->
-<!-- LINKS -->
-
 <!-- METHODS -->
 
 

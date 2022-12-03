@@ -21,7 +21,7 @@ yum install -y wget curl tar pwgen uuid vim
 
 1) First create a directory where the OpenHaus backend is stored
 ```bash
-mkdir /opt/OpenHaus/
+mkdir -p /opt/OpenHaus/backend-v1.0.0
 ```
 
 2) Download & extract the latest OpenHaus release from GitHub
@@ -35,12 +35,6 @@ tar -zxvf -C /opt/OpenHaus/backend-v1.0.0 backend-v1.0.0.tgz
 cd /opt/OpenHaus/backend-v1.0.0
 NODE_ENV=production npm install
 ```
-A quick test with `npm start` should show something like that:
-```bash
-Starting OpenHaus vX.X.X...
-...
-```
-The error message is fine, since we need to configure some [environment variables](configuration.md).
 
 4) Create a symlink to link the latest version to `/opt/OpenHaus/backend`
 ```bash

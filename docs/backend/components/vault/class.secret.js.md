@@ -19,6 +19,7 @@ Represents a single secret that wraps encrypt/decrypt methods
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
 | obj | `Object` |  Object that matches the item schema. See properties below: |
+| changed | `Function` |  Optional callback that is fired when the value changed (Interal use only!) |
 <!-- PARAMETER -->
 
 <!-- PROPERTIES -->
@@ -27,13 +28,9 @@ Represents a single secret that wraps encrypt/decrypt methods
 | :---- | :-------- | :----------- |
 | _id | `String` | MongoDB Object id is as string |
 | name | `String` | Human readable name |
-| identifier | `String` | Simle identifier to find the secret when you need it |
-| fields[] | `Array` | Fields for the secret |
-| fields[]._id | `String` | MongoDB Object id is as string |
-| fields[].name | `String` | Human readable name |
-| fields[].description | `String` | Description of the field |
-| fields[].key | `String` | Simple machine readable key. E.g.: ```PASSWORD``` or ```TOKEN``` |
-| fields[].value | `String` | Value for the key field. E.g: ```Pa$$w0rd``` or ```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c``` |
+| description | `String` | Description of the secret |
+| key | `String` | Simple machine readable key. E.g.: ```PASSWORD``` or ```TOKEN``` |
+| value | `String` | Value for the key field. E.g: ```Pa$$w0rd``` or ```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c``` |
 <!-- PROPERTIES -->
 
 <!-- EVENTS -->
@@ -51,34 +48,47 @@ Represents a single secret that wraps encrypt/decrypt methods
 
 <!-- METHODS -->
 ### Methods:
-####  .encrypt(data, cb);  
+####  .schema();  `static`  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
-| data | `Object` |  Key/value pair to encrypt |
-| cb | `Function` |  Callback |
 
 
-Encrypt on or more fields
+Returns joi schema for a single secret
 
 
-*Returns*   `undefined`   
+*Returns*  `Object`    Joi.object 
 
 
 <!-- LINKS -->
 <!-- LINKS -->
 
-####  .decrypt(cb);  
+####  .encrypt(text);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |
-| cb | `Function` |  Callback |
+| text | `String` |  Input value to be encrypted |
 
 
-Decrypt all exisiting fields
+Sets & encrypt the value for this secret
 
 
-*Returns*   `undefined`   
+*Returns*  `String`    Ecnrypted string
+
+
+<!-- LINKS -->
+<!-- LINKS -->
+
+####  .decrypt();  
+
+| Parameter | Type       | Description    |
+| :-------- | :--------- |:------------- |
+
+
+Returns & decrypt the setted value
+ 
+
+*Returns*  `String`    Decrypted string
 
 
 <!-- LINKS -->
