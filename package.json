@@ -8,7 +8,8 @@
     "start": "npx docsify serve docs",
     "fetch:backend": "cd tmp && git clone https://github.com/OpenHausIO/backend.git",
     "fetch:frontend": "cd tmp && git clone https://github.com/OpenHausIO/frontend.git",
-    "fetch": "npm run fetch:frontend && npm run fetch:backend"
+    "fetch": "rm -rf ./tmp/* && npm run fetch:frontend && npm run fetch:backend",
+    "build": "node index.js"
   },
   "author": "Marc Stirner <marc.stirner@open-haus.io>",
   "license": "MIT",
