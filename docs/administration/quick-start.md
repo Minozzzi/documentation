@@ -17,7 +17,6 @@ services:
     image: mongo
     container_name: database
     hostname: database
-    network_mode: host
 
   backend:
     image: "openhaus/backend:latest"
@@ -25,6 +24,7 @@ services:
     hostname: backend
     environment:
       - NODE_ENV=production
+      - DATABASE_HOST=database
       - UUID=00000000-0000-0000-0000-000000000000
       - VAULT_MASTER_PASSWORD=Pa$$w0rd
       - USERS_JWT_SECRET=Pa$$W0rd
@@ -32,17 +32,19 @@ services:
     depends_on:
       - database
     tty: true
-    network_mode: host
 
   frontend:
     image: "openhaus/frontend:latest"
     container_name: frontend
     hostname: frontend
+    ports:
+      - "80:80"
+      - "443:443"
     depends_on:
       - backend
     environment:
+      - BACKEND_HOST=backend
       - NODE_ENV=production
-    network_mode: host
 
   connector:
     image: "openhaus/connector:latest"
@@ -50,9 +52,14 @@ services:
     hostname: connector
     environment:
       - NODE_ENV=production
-      - STARTUP_DELAY=1500
+      - BACKEND_HOST=127.0.0.1
+      - BACKEND_PORT=80 # Frontend container exposed http port, it works as reverse proxy
+      - STARTUP_DELAY=2000
     network_mode: host
+    depends_on:
+      - frontend
     tty: true
+
 ```
 
 The host network is needed to send/receive multicast packets to/from the connector to make the autodiscover function over ssdp work.
