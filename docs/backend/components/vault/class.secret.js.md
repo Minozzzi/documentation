@@ -86,7 +86,7 @@ Sets & encrypt the value for this secret
 
 
 Returns & decrypt the setted value
- 
+
 
 *Returns*  `String`    Decrypted string
 

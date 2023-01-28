@@ -26,22 +26,20 @@ mkdir -p /opt/OpenHaus/backend-v1.0.0
 
 2) Download & extract the latest OpenHaus release from GitHub
 ```bash
-wget "https://github.com/OpenHausIO/backend/releases/download/v1.0.0/backend-v1.0.0.tgz"
-tar -zxvf -C /opt/OpenHaus/backend-v1.0.0 backend-v1.0.0.tgz
+wget "https://github.com/OpenHausIO/backend/releases/download/v2.0.0/backend-v2.0.0.tgz"
+mkdir /opt/OpenHaus/
+tar -zxf backend-vX.X.X.tgz -C /opt/OpenHaus/backend-vX.X.X
+cd /opt/OpenHaus
+ln -snf ./backend-vX.X.X/ ./backend
 ```
 
 3) Install npm dependencies
 ```bash
-cd /opt/OpenHaus/backend-v1.0.0
+cd /opt/OpenHaus/backend
 NODE_ENV=production npm install
 ```
 
-4) Create a symlink to link the latest version to `/opt/OpenHaus/backend`
-```bash
-ln -s /opt/OpenHaus/backend-v1.0.0 /opt/OpenHaus/backend
-```
-
-5) Create a systemd unit file, to run the backend after reboots
+4) Create a systemd unit file, to run the backend after reboots
 ```systemd
 cat << EOF > /lib/systemd/system/open-haus.service
 [Unit]

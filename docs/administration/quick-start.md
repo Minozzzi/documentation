@@ -6,6 +6,8 @@ This enables a great "10 Min" exprience and prevents frustation.
 All you need is a linux host and [docker](https://docs.docker.com/engine/install/#server) with the [compose plugin](https://docs.docker.com/compose/install/linux/) installed. <br />
 "Docker Desktop" should also work, but was not tested.
 
+Keep in mind that the linux/docker host needs to be run in your local network (LAN) to be able to discover devices & services via SSDP and MDNS. Its also possible that you need to create a firewall rule to allow inbound traffic for the ports `1900/udp` & `5353/udp` if you dont receive any SSDP/MDNS messages in the connector. (Example below)
+
 ---
 
 ### Create a _`docker-compose.yml`_:
@@ -92,8 +94,14 @@ Then try to access OpenHaus over `http://127.0.0.1`  or the external IP of the h
 
 If everthings was fine, you have now a wokring OpenHaus stack deployed.
 
+When you have a problem with mdns/ssdp traffic, add the following firewall rules (Example for [`firewalld`](https://firewalld.org/)):
+- `firewall-cmd --zone=public --add-port=1900/udp` for ssdp
+- `firewall-cmd --zone=public --add-port=5353/udp` for mdns
+
 ---
 
 Related links: 
 - Docker on CentOS: https://docs.docker.com/engine/install/centos/#install-using-the-repository
 - Compose plugin: https://docs.docker.com/compose/install/linux/
+- ssdp: https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol
+- mdsn: https://en.wikipedia.org/wiki/Multicast_DNS

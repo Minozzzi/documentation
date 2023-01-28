@@ -13,7 +13,7 @@
 
 <!-- METHODS -->
 ### Methods:
-####  .observe(target, options, setter, getter);  
+####  `DEPRECATED`  .observe(target, options, setter, getter);  
 
 | Parameter | Type       | Description    |
 | :-------- | :--------- |:------------- |

@@ -30,7 +30,7 @@ Single command
 | name | `String` | Human friendly name |
 | alias | `String` | Machine friendly name, e.g.: `POWER_ON` |
 | identifier | `String` | Simple/custom identifiert for custom command handler |
-| payload | `String` | The payload to send over the device interface |
+| payload | `String|Buffer` | The payload to send over the device interface |
 | description | `String` | Command description, displayed on the frontend |
 | params | `Array` | Possible parameter for the command |
 | params[].key | `String` | Custom key |
