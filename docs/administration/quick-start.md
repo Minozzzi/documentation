@@ -72,7 +72,7 @@ There is currenlty no other way to forward multicast traffic.
 ### Download the needed docker images:
 ```sh
 wget https://github.com/OpenHausIO/backend/releases/download/v2.0.0/backend-v2.0.0-docker.tgz
-wget https://github.com/OpenHausIO/frontend/releases/download/v1.0.0/frontend-v1.0.0-docker.tgz
+wget https://github.com/OpenHausIO/frontend/releases/download/v1.0.0-pre/frontend-v1.0.0-docker.tgz
 wget https://github.com/OpenHausIO/connector/releases/download/v1.0.0/connector-v1.0.0-docker.tgz
 ```
 
